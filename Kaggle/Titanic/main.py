@@ -22,3 +22,11 @@ from sklearn.linear_model import Perceptron
 from sklearn.linear_model import SGDClassifier
 from sklearn.tree import DecisionTreeClassifier
 
+# carreguem les dades
+
+train_df = pd.read_csv('train.csv')
+test_df = pd.read_csv('test.csv')
+combine = [train_df, test_df]
+
+#mirem les etiquetes de cada feature
+print(train_df.columns.values)
