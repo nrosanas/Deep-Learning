@@ -30,3 +30,7 @@ combine = [train_df, test_df]
 
 #mirem les etiquetes de cada feature
 print(train_df.columns.values)
+
+train_df.info()
+print('_'*40)
+test_df.info()
