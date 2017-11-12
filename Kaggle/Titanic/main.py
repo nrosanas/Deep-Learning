@@ -71,3 +71,14 @@ print(train_df[['Pclass','Survived']].groupby(by='Pclass').mean())
 #comprovem si el sexe afecta
 print('comprovem si el sexe afecta')
 print(train_df[['Sex','Survived']].groupby(by='Sex').mean())
+
+print('fem el mateix per nombre de germans i conjuge i despres per fills o pares')
+print(train_df[['SibSp','Survived']].groupby(by='SibSp').mean().sort_values(by='Survived'))
+print(train_df[['Parch','Survived']].groupby(by='Parch').mean().sort_values(by='Survived'))
+    
+
+g = sns.FacetGrid(train_df, col='Survived')
+g.map(plt.hist, 'Age', bins=20)
+grid = sns.FacetGrid(train_df, col='Pclass', hue='Survived')
+#grid = sns.FacetGrid(train_df, col = 'Pclass', row = 'Survived')
+grid.map(plt.hist, 'Age', alpha=.5, bins=20)
